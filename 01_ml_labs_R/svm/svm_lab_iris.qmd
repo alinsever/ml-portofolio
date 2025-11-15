@@ -7,6 +7,7 @@ format:
     toc: true
     toc-depth: 4
     number-sections: true
+    code-fold: false
   pdf:
     toc: true
     number-sections: true
@@ -29,7 +30,7 @@ library(caret) # helper functions
 
 ## Loading the data
 
-- look at the structure
+Inspect the structure of the data
 
 ```{r data}
 data(iris)
@@ -37,7 +38,7 @@ str(iris)
 ```
 
 ## View the data
-- plot the data by Sepal
+Plot the data by Sepal
 
 ```{r data_plot}
 iris |> 
@@ -46,7 +47,7 @@ iris |>
 ```
 
 
-- plot the data by petal
+Plot the data by petal
 
 ```{r data_plot_petal}
 iris |> 
