@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Machine Learning Portfolio",
+    "section": "",
+    "text": "Welcome to My Machine Learning Portfolio\nThis portfolio showcases my work in:\n\nMachine Learning Labs in R\nNHANES Health Project (R)\nDiabetes Readmission Project (Python)\n\nUse the sidebar to navigate through the sections.\nAll documents are fully reproducible, using Quarto, R, and Python."
+  }
+]
