@@ -4,6 +4,9 @@ project:
 
 website:
   title: "Machine Learning Portfolio - Alin Sever"
+  navbar:
+    logo: assets/logo.png
+    pinned: true
   sidebar:
     style: "docked"
     search: true
