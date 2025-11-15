@@ -15,7 +15,7 @@ website:
 
       - section: "NHANES Project (R)"
         contents:
-          # - 02_nhanes_R/_index.qmd
+          - 02_nhanes_R/_index.qmd
           # - 02_nhanes_R/cleaning.qmd
           # - 02_nhanes_R/eda.qmd
           # - 02_nhanes_R/regression.qmd
@@ -24,7 +24,7 @@ website:
 
       - section: "Diabetes Readmission (Python)"
         contents:
-          # - 03_diabetes_python/_index.qmd
+          - 03_diabetes_python/_index.qmd
           # - 03_diabetes_python/preprocessing.qmd
           # - 03_diabetes_python/feature_engineering.qmd
           # - 03_diabetes_python/smote_balancing.qmd
