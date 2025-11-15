@@ -61,7 +61,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -77,13 +76,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a35d343c8bdbcb87d3b82ed68e48a46c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-43081d808c96cc46af55a3a816ae9eed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -109,10 +108,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../assets/logo.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Machine Learning Portfolio - Alin Sever</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -128,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -249,26 +264,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loading-packages" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="loading-packages"><span class="header-section-number">1</span> Loading Packages</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071) <span class="co"># package for SVM</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret) <span class="co"># helper functions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section>
 <section id="loading-the-data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="loading-the-data"><span class="header-section-number">2</span> Loading the data</h2>
-<ul>
-<li>look at the structure</li>
-</ul>
+<p>Inspect the structure of the data</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   150 obs. of  5 variables:
  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
@@ -281,16 +288,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="view-the-data" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="view-the-data"><span class="header-section-number">3</span> View the data</h2>
-<ul>
-<li>plot the data by Sepal</li>
-</ul>
+<p>Plot the data by Sepal</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species))<span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -299,16 +301,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<ul>
-<li>plot the data by petal</li>
-</ul>
+<p>Plot the data by petal</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species))<span class="sc">+</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -322,11 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4" class="anchored" data-anchor-id="prepare-for-trainig"><span class="header-section-number">4</span> Prepare for Trainig</h2>
 <p>This function creates a stratified split of data. It splits the dataset into training and testing p = 85 (85% training) while preserving the class proportion of the Species variable. In other words this makes sure the proportion of each class (setosa, versicolor, virginica) in the split is the same as in the original dataset. List = FALSE - when you want the vector as a row numbers not as a list</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>indices <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p =</span> .<span class="dv">85</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Then I use it like this:</p>
 <ul>
@@ -335,30 +329,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>test_truth = actual labels for evaluating predictions</li>
 </ul>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">slice</span>(indices)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Slicing with a 1-column matrix was deprecated in dplyr 1.1.0.</code></pre>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_in <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span>indices) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Species)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>test_truth <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span>indices) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section>
 <section id="train-the-svm---linear-kernel" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="train-the-svm---linear-kernel"><span class="header-section-number">5</span> Train the SVM - Linear kernel</h2>
 <p>The SVM function has the default cost of 10</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>iris_svm <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species <span class="sc">~</span> ., train, <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">cost =</span> <span class="dv">10</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_svm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -384,10 +369,7 @@ Levels:
 </div>
 <p>we can visualize the SVM decision boundaries only in two dimensions, even though the model was trained in four dimensions (all iris features).</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris_svm, train, Petal.Length <span class="sc">~</span> Petal.Width)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -398,11 +380,8 @@ Levels:
 </div>
 <p>For Sepal leaf Dimensions it is needed to be sliced the other dimenstions at a reasonable point</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris_svm, train, Sepal.Length <span class="sc">~</span> Sepal.Width,</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">slice =</span> <span class="fu">list</span>(<span class="at">Petal.Length =</span> <span class="fl">4.5</span>, <span class="at">Petal.Width =</span> <span class="fl">1.75</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -415,11 +394,8 @@ Levels:
 <section id="predictions" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="predictions"><span class="header-section-number">5.1</span> Predictions</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>test_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(iris_svm, test_in)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(test_pred)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>test_pred
     setosa versicolor  virginica 
@@ -430,11 +406,8 @@ Levels:
 <section id="results" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="results"><span class="header-section-number">5.2</span> Results</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(test_pred, test_truth)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>conf_matrix</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Confusion Matrix and Statistics
 
@@ -486,13 +459,10 @@ Balanced Accuracy           1.0000            1.0000           1.0000</code></pr
 <li>High cost - tries to classify training points almost perfectly (risk of overfitting)</li>
 </ul>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>iris_svm2 <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species <span class="sc">~</span> ., train, <span class="at">kernel =</span> <span class="st">"radial"</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">cost =</span> <span class="dv">100</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris_svm2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -519,10 +489,7 @@ Levels:
 <section id="plots" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="plots"><span class="header-section-number">6.1</span> Plots</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris_svm2, train, Petal.Length <span class="sc">~</span> Petal.Width, <span class="at">slice =</span> <span class="fu">list</span>(<span class="at">Sepal.Length =</span> <span class="dv">6</span>, <span class="at">Sepal.Width =</span> <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -532,10 +499,7 @@ Levels:
 </div>
 </div>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(iris_svm2, train, Sepal.Length <span class="sc">~</span> Sepal.Width, <span class="at">slice =</span> <span class="fu">list</span>(<span class="at">Petal.Length =</span> <span class="fl">4.5</span>, <span class="at">Petal.Width =</span> <span class="fl">1.75</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -548,11 +512,8 @@ Levels:
 <section id="predictions-1" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="predictions-1"><span class="header-section-number">6.2</span> Predictions</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>test_pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(iris_svm2, test_in)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(test_pred2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>test_pred2
     setosa versicolor  virginica 
@@ -563,11 +524,8 @@ Levels:
 <section id="results-1" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="results-1"><span class="header-section-number">6.3</span> Results</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>conf_matrix2 <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(test_pred2, test_truth)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>conf_matrix2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Confusion Matrix and Statistics
 
