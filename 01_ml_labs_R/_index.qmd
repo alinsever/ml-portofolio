@@ -1,0 +1,17 @@
+---
+title: "Machine Learning Labs in R"
+format:
+  html: default
+  pdf: default
+---
+
+## Overview
+This section contains a collection of machine learning labs implemented in **R**, using datasets commonly explored in coursework and practical applications.
+
+Each lab focuses on a specific method or concept, including:
+
+- Linear regression
+- Support Vector Machines (SVM)
+
+
+The goal of these labs is to demonstrate mastery of ML workflows using reproducible Quarto documents.
