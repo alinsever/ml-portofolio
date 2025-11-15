@@ -1,0 +1,21 @@
+---
+title: "Diabetes Readmission Project"
+format:
+  html: default
+  pdf: default
+---
+
+## Overview
+This Python-based project builds a complete ML pipeline for predicting hospital readmission for diabetes patients.
+
+It includes:
+
+- Preprocessing  
+- Feature engineering  
+- SMOTE imbalance handling  
+- Logistic Regression  
+- Random Forest  
+- SVM  
+- SHAP model interpretability  
+
+Rendered with Quarto using the Python Jupyter engine.

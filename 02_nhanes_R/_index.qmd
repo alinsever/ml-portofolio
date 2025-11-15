@@ -1,0 +1,17 @@
+---
+title: "NHANES Health Project"
+format:
+  html: default
+  pdf: default
+---
+
+## Overview
+This project analyzes the NHANES health dataset using:
+
+- Data cleaning  
+- Exploratory analysis  
+- Linear regression  
+- SVM classification  
+- Model comparison and interpretation  
+
+All steps are fully reproducible through R and Quarto.

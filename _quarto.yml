@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Machine Learning Portfolio - Alin Sever"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "ML Labs (R)"
+        contents:
+          - 01_ml_labs_R/_index.qmd
+          - 01_ml_labs_R/svm/svm_basics.qmd
+
+      - section: "NHANES Project (R)"
+        contents:
+          - 02_nhanes_R/_index.qmd
+          - 02_nhanes_R/cleaning.qmd
+          - 02_nhanes_R/eda.qmd
+          - 02_nhanes_R/regression.qmd
+          - 02_nhanes_R/svm_classification.qmd
+          - 02_nhanes_R/report.qmd
+
+      - section: "Diabetes Readmission (Python)"
+        contents:
+          - 03_diabetes_python/_index.qmd
+          - 03_diabetes_python/preprocessing.qmd
+          - 03_diabetes_python/feature_engineering.qmd
+          - 03_diabetes_python/smote_balancing.qmd
+          - 03_diabetes_python/models/logistic_regression.qmd
+          - 03_diabetes_python/models/random_forest.qmd
+          - 03_diabetes_python/models/svm.qmd
+          - 03_diabetes_python/shap_interpretability.qmd
+          - 03_diabetes_python/report.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    toc: true
+    toc-depth: 4
+
+  pdf:
+    documentclass: scrreprt
+    papersize: a4
+    margin-left: 25mm
+    margin-right: 25mm
+

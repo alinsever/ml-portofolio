@@ -205,3 +205,36 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# Positron editor cache
+de-kv-file
+*.kv
+
+# RStudio / R Session
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto cache + build
+.qmd_cache/
+*/_cache/
+*_cache/
+.quarto/
+_site/
+
+# Python virtual environments
+venv/
+.env/
+__pycache__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Positron notebooks cache
+.ipynb_checkpoints/
+
+# Logs
+*.log
