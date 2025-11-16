@@ -22,7 +22,7 @@ website:
           # - 02_nhanes_R/cleaning.qmd
           # - 02_nhanes_R/eda.qmd
           # - 02_nhanes_R/regression.qmd
-          # - 02_nhanes_R/svm_classification.qmd
+            - 02_nhanes_R/svm_classification.qmd
           # - 02_nhanes_R/report.qmd
 
       - section: "Diabetes Readmission (Python)"
