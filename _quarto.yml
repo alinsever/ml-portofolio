@@ -11,23 +11,23 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "ML Labs (R)"
+      - text: "ML Labs (R)"
+        href: 01_ml_labs_R/_index.qmd
         contents:
-          - 01_ml_labs_R/_index.qmd
           - 01_ml_labs_R/svm/svm_lab_iris.qmd
 
-      - section: "NHANES Project (R)"
+      - text: "NHANES Project (R)"
+        href: 02_nhanes_R/_index.qmd
         contents:
-          - 02_nhanes_R/_index.qmd
           # - 02_nhanes_R/cleaning.qmd
           # - 02_nhanes_R/eda.qmd
-          # - 02_nhanes_R/regression.qmd
-            - 02_nhanes_R/svm_classification.qmd
+          - 02_nhanes_R/linear_model.qmd
+          - 02_nhanes_R/svm_classification.qmd
           # - 02_nhanes_R/report.qmd
 
-      - section: "Diabetes Readmission (Python)"
+      - text: "Diabetes Readmission (Python)"
+        href: 03_diabetes_python/_index.qmd
         contents:
-          - 03_diabetes_python/_index.qmd
           # - 03_diabetes_python/preprocessing.qmd
           # - 03_diabetes_python/feature_engineering.qmd
           # - 03_diabetes_python/smote_balancing.qmd

@@ -1,10 +1,16 @@
 ---
 title: "Predicting Obesity using Support Vector Machines"
-format: html
-code-fold: False
-
-toc: TRUE
-editor: source
+author: "Alin Sever"
+date: "2025-11-16"
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    code-fold: false
+  pdf:
+    toc: true
+    number-sections: true
 
 execute:
   cache: true
