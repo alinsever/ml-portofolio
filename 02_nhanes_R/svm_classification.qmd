@@ -7,7 +7,7 @@ toc: TRUE
 editor: source
 
 execute:
-  cache: false
+  cache: true
 
 
 ---
