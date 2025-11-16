@@ -2,13 +2,14 @@ name: Quarto Publish
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
+
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -25,11 +26,11 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e "install.packages(c('tidyverse','e1071','caret','ggplot2'))"
+          Rscript -e "install.packages(c('tidyverse','e1071','caret','ggplot2','AER','dynlm'), repos='https://cloud.r-project.org')"
 
       - name: Install Python packages
         run: |
-          pip install pandas scikit-learn numpy shap
+          pip install pandas numpy scikit-learn shap
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
